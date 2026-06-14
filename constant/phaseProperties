@@ -1,0 +1,90 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      phaseProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+type    massTransferMultiphaseSystem;
+
+phases  (argon Fe Si steel);
+
+Fe
+{
+    type            pureMovingPhaseModel;
+}
+
+Si
+{
+    type            pureMovingPhaseModel;
+}
+
+steel
+{
+    type            multiComponentMovingPhaseModel;
+}
+
+argon
+{
+    type            multiComponentMovingPhaseModel;
+}
+
+surfaceTension
+(
+    (argon and steel)
+    {
+        type            constant;
+        sigma           0.005;
+    }
+
+    (argon and Fe)
+    {
+        type            constant;
+        sigma           0.005;
+    }
+
+    (Fe and argon)
+    {
+        type            constant;
+        sigma           0.005;
+    }
+
+    (Fe and Si)
+    {
+        type            constant;
+        sigma           0.005;
+    }
+
+    (Fe and steel)
+    {
+        type            constant;
+        sigma           0.005;
+    }
+
+    (argon and Si)
+    {
+        type            constant;
+        sigma           0.005;
+    }
+    (Si and steel)
+    {
+        type            constant;
+        sigma           0.005;
+    }
+);
+
+massTransferModel
+(
+);
+
+
+// ************************************************************************* //

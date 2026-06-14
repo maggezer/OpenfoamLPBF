@@ -1,0 +1,40 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      O2.steel;
+}
+
+dimensions      [0 0 0 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    xmin
+    {
+        type            zeroGradient;
+    }
+    xmax
+    {
+        type            zeroGradient;
+    }
+    ymin
+    {
+        type            zeroGradient;
+    }
+    ymax
+    {
+        type            zeroGradient;
+    }
+    zmin
+    {
+        type            zeroGradient;
+    }
+    zmax
+    {
+        type            zeroGradient;
+    }
+}

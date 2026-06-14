@@ -1,0 +1,104 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      thermophysicalProperties.argon;
+}
+
+thermoType
+{
+    type            heRhoThermo;
+    mixture         multiComponentMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState incompressiblePerfectGas;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+species
+(
+    air
+    vapour
+    CO2
+);
+
+inertSpecie     air;
+
+air
+{
+    specie
+    {
+        molWeight   39.948;
+    }
+
+    equationOfState
+    {
+        pRef        101325;
+    }
+
+    thermodynamics
+    {
+        Cp          520.0;
+        Hf          0;
+    }
+
+    transport
+    {
+        mu          2.23e-05;
+        Pr          0.6551412429378531;
+    }
+}
+
+vapour
+{
+    specie
+    {
+        molWeight   39.948;
+    }
+
+    equationOfState
+    {
+        pRef        101325;
+    }
+
+    thermodynamics
+    {
+        Cp          520.0;
+        Hf          0;
+    }
+
+    transport
+    {
+        mu          2.23e-05;
+        Pr          0.6551412429378531;
+    }
+}
+
+CO2
+{
+    specie
+    {
+        molWeight   39.948;
+    }
+
+    equationOfState
+    {
+        pRef        101325;
+    }
+
+    thermodynamics
+    {
+        Cp          520.0;
+        Hf          0;
+    }
+
+    transport
+    {
+        mu          2.23e-05;
+        Pr          0.6551412429378531;
+    }
+}
+

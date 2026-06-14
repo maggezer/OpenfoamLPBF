@@ -1,0 +1,44 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      thermophysicalProperties.Fe;
+}
+
+thermoType
+{
+    type            heRhoThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState rhoConst;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+mixture
+{
+    specie
+    {
+        molWeight   55.845;
+    }
+
+    equationOfState
+    {
+        rho         7000.0;
+    }
+
+    thermodynamics
+    {
+        Cp          820.0;
+        Hf          0;
+    }
+
+    transport
+    {
+        mu          0.006;
+        Pr          0.164;
+    }
+}

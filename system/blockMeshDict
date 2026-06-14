@@ -1,0 +1,96 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| OpenFOAM blockMeshDict                                                     |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+
+scale 1;
+
+vertices
+(
+    (-0.0001  -0.0002  -0.00045)
+    ( 0.00075 -0.0002  -0.00045)
+    ( 0.00075  0.0002  -0.00045)
+    (-0.0001   0.0002  -0.00045)
+
+    (-0.0001  -0.0002   0.00045)
+    ( 0.00075 -0.0002   0.00045)
+    ( 0.00075  0.0002   0.00045)
+    (-0.0001   0.0002   0.00045)
+);
+
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) (170 80 180) simpleGrading (1 1 1)
+);
+
+edges
+(
+);
+
+boundary
+(
+    xmin
+    {
+        type patch;
+        faces
+        (
+            (0 4 7 3)
+        );
+    }
+
+    xmax
+    {
+        type patch;
+        faces
+        (
+            (1 2 6 5)
+        );
+    }
+
+    ymin
+    {
+        type patch;
+        faces
+        (
+            (0 1 5 4)
+        );
+    }
+
+    ymax
+    {
+        type patch;
+        faces
+        (
+            (3 7 6 2)
+        );
+    }
+
+    zmin
+    {
+        type wall;
+        faces
+        (
+            (0 3 2 1)
+        );
+    }
+
+    zmax
+    {
+        type patch;
+        faces
+        (
+            (4 5 6 7)
+        );
+    }
+);
+
+mergePatchPairs
+(
+);
