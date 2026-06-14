@@ -1,0 +1,11 @@
+#!/bin/sh
+cd "${0%/*}" || exit
+
+rm -rf constant/polyMesh
+rm -rf processor*
+rm -rf postProcessing
+rm -rf dynamicCode
+rm -rf [1-9]*
+rm -rf [0-9]*e-*
+rm -f log log.*
+rm -f *.foam *.OpenFOAM

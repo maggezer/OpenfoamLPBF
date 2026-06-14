@@ -1,0 +1,35 @@
+# OpenFOAM build products
+platforms/
+lnInclude/
+*.o
+*.so
+*.dep
+
+# OpenFOAM logs
+log
+log.*
+*.log
+
+# Generated case data
+case/constant/polyMesh/
+case/processor*/
+case/postProcessing/
+case/dynamicCode/
+case/uniform/time
+
+# Time directories, but keep case/0
+case/[1-9]*/
+case/[0-9]*e-*/
+
+# ParaView / OpenFOAM helper files
+*.foam
+*.OpenFOAM
+
+# Crash / system files
+core
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
