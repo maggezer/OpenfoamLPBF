@@ -4,5 +4,15 @@ cd "${0%/*}" || exit
 . "${WM_PROJECT_DIR:?}/bin/tools/RunFunctions"
 
 runApplication blockMesh
-runApplication setFields
+
+if [ "${USE_SETFIELDS:-0}" = "1" ]; then
+    echo "Running setFields because USE_SETFIELDS=1 was provided."
+    runApplication setFields
+else
+    echo "Skipping setFields."
+    echo "Using existing LIGGGHTS/OpenFOAM initial fields in the 0/ directory."
+    echo "To run the demo setFields initialization, use:"
+    echo "USE_SETFIELDS=1 ./Allrun"
+fi
+
 runApplication lpbfIcoReactingMultiphaseInterFoam
